@@ -33,3 +33,21 @@ eg:
 
 install sqlc [v1.4.0] cli tool in same way as done for migrate
 
+once you write a query like
+```shell
+[root@docker Golang-project]# ll db/query/account.sql
+-rw-r--r--. 1 root root 121 May 15 00:46 db/query/account.sql
+[root@docker Golang-project]# cat db/query/account.sql
+-- name: CreateAccount :one
+INSERT INTO accounts (
+  owner,
+  balance,
+  currency
+) VALUES (
+  $1, $2, $3
+) RETURNING *;
+[root@docker Golang-project]#
+```
+
+And run `sqlc migrate` it will generate some golang files under `db/sqlc/` which we can use to interact with DB
+
