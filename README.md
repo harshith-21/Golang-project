@@ -51,3 +51,8 @@ INSERT INTO accounts (
 
 And run `sqlc migrate` it will generate some golang files under `db/sqlc/` which we can use to interact with DB
 
+creating some sql files and running 
+```shell
+make sqlc
+```
+will generate the go files with required crud functions
